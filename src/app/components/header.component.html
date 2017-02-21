@@ -1,0 +1,29 @@
+<div class="header clearfix">
+    <nav>
+        <ul class="nav nav-pills pull-right">
+
+
+            <li *ngIf="_userService.getCurrentUser()" role="presentation"><a href="#">Welcome {{_userService.getCurrentUser()}}</a></li>
+            <li *ngIf="_userService.getCurrentUser()" role="presentation"><a href="/">Dashboard</a></li>
+            <li *ngIf="_userService.getCurrentUser()" role="presentation"><button type="button" class="btn btn-link" (click)=_userService.logout()>Logout</button></li>
+            <li *ngIf="!_userService.getCurrentUser()" role="presentation"><a href="/login">Login</a></li>
+
+        </ul>
+    </nav>
+    <h3 class="text-muted">Draws App</h3>
+</div>
+<!--
+<nav class="navbar container">
+    <div class="container">
+        <ul class="navbar-list">
+            <li class="navbar-item">
+                <div class="navbar-header">Curriculr on the go</div>
+            </li>
+        </ul>
+        <ul *ngIf="_userService.getCurrentUser()" class="navbar-list u-pull-right">
+            <li class="navbar-item u-pull-right">
+                <a class="navbar-link" (click)='logout()'>Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>-->
