@@ -1,0 +1,40 @@
+<h1 class="page-header" id="drawName">
+    <a class="anchorjs-link " href="#drawName" aria-label="Anchor link for: drawName" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; line-height: inherit; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>{{drawName}}</h1>
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Draw Results</div>
+    <div class="panel-body">
+        <p><a class="btn btn-primary btn-lg " role="button" (click)="newDraw()">New</a></p>
+    </div>
+
+    <!-- Table -->
+    <table *ngIf="drawResults" class="table table-striped">
+        <thead>
+            <tr>
+                <th>Date of Draw</th>
+                <th>Description</th>
+                <th>Prize</th>
+                <th>Winners</th>
+                <th>Substitutes</th>
+                <th>Detailed Results</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let res of drawResults">
+                <td>
+                    {{res.drawDate}}
+                </td>
+                <td>
+                    {{res.label}}
+                </td>
+                <td>{{res.prize}}</td>
+                <td>{{res.winners}}</td>
+                <td>{{res.substitutes}}</td>
+                <td><a href="/winners">Show Winners</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <div *ngIf="!drawResults" class="alert alert-warning">
+        Currently no draw results have been found for {{drawName}}
+    </div>
+</div>

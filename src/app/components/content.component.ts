@@ -28,7 +28,7 @@ export class ContentComponent {
     if (!this._userService.getCurrentUser()) {
       this._router.navigate(['login']);
     } else {
-      this._router.navigate(['/klasses']);
+      this._router.navigate(['/home']);
     }
   }
   currentUser: User;

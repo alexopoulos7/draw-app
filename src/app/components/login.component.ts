@@ -2,10 +2,13 @@ import { Component } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { User } from '../models/user';
 
+import { Router } from '@angular/router';
+
+
 @Component({
     moduleId: module.id,
     selector: 'login',
-    templateUrl: 'login.component.html',
+    templateUrl: '../templates/login.component.html',
     providers: [UserService]
 })
 
@@ -15,8 +18,7 @@ export class LoginComponent {
     login_error: string;
     currentUser: User;
 
-    constructor(private userService: UserService) {
-
+    constructor(private userService: UserService, private _router: Router) {
         this.login_error = '';
     }
     login() {
@@ -31,6 +33,7 @@ export class LoginComponent {
                 let cu: User = { email: use.email, name: use.username, loggedIn: true };
                 localStorage.setItem('cu', cu.name);
                 localStorage.setItem('loggedIn', cu.loggedIn.toString());
+                this._router.navigate(['/home']);
             },
             err => { this.login_error = err; console.log(err); });
 
